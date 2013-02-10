@@ -1,11 +1,11 @@
 #include <stdlib.h>
 #include <check.h>
-#include <M.c>
+#include <M.h>
+
+#define ARRAY_LEN(array) (sizeof(array) / sizeof(array[0]))
 
 #define MAX_TEST(array, max_index) \
-        { \
-          fail_unless(MAXIMUM(array, sizeof(array) / sizeof(array[0])) == max_index); \
-        }
+            fail_unless(MAXIMUM(array, ARRAY_LEN(array)) == max_index)
 
 START_TEST (test_max)
 {

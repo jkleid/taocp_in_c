@@ -1,6 +1,6 @@
 int MAXIMUM(const int* X, int n)
 {
-  int k, j, m;
+  int j, k, m;
 
   k = n-1;          // INIT
   goto CHANGEM;
@@ -10,7 +10,6 @@ CHANGEM:
       j = k;
       m = X[k];
     }
-    k--;
-  } while (k >= 0);
+  } while (--k >= 0);
   return j;         // EXIT
 }
