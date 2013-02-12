@@ -19,7 +19,7 @@ M5:
 }
 
 /*
- * Wrapper to convert the array from zero based to one based,
+ * Adapater to convert the array from zero based to one based,
  * and convert the result back to zero based.
  */
 int MAXIMUM(const int* X, int n)
