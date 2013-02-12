@@ -1,5 +1,5 @@
 TESTS = check_M check_M_literal check_P
-bin_PROGRAMS = print_primes
+bin_PROGRAMS = print_primes ex3
 check_PROGRAMS = check_M check_M_literal check_P
 
 check_M_SOURCES = check_M.c M.c
@@ -15,3 +15,5 @@ print_primes_SOURCES = harness_P.c P.c
 check_P_SOURCES = check_P.c P.c
 check_P_CFLAGS = @CHECK_CFLAGS@
 check_P_LDADD = @CHECK_LIBS@
+
+ex3_SOURCES = ex3.c M.c
