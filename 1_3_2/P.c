@@ -50,8 +50,7 @@ void PRINTPRIMES()
       b[4] = ' ';          // Replace null terminator with a space
       b -= 5;
       m -= 50;
-    }
-    while(m > 0);
+    } while(m > 0);
     b[54] = '\0';          // Put null terminator back at end of string
     printf("%s\n", b + 5); // P11
     b = *(char**)&b[55];   // Buffer swap

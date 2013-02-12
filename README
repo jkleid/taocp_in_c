@@ -1,4 +1,15 @@
 taocp_in_c
 ==========
 
-A probably doomed attempt to translate the MIX programs in Knuth's The Art of Computer Programming into C.
+A probably doomed attempt to translate the MIXAL programs in Knuth's The Art of Computer Programming into C.
+
+
+Translation Notes
+_________________
+
+A significant amount of interpretation is required to translate from MIXAL in the MIX environment to C in a platform independent environment. My goal was to preserve the original MIXAL code's intent as closely as I could, but also use idiomatic C where possible.
+
+For example, [https://github.com/jkleid/taocp_in_c/blob/master/1_3_2/M_literal.c]
+is a line-for-line "literal" translation of the original MIXAL Maximum function (taocp vol 1 page 145). It contains three gotos, and arrays are 1-based.
+
+The better version though, is [https://github.com/jkleid/taocp_in_c/blob/master/1_3_2/M.c]. Arrays are zero based, and two of the gotos have been translated into idiomatic C structures. However, one goto remains. There is no way to remove this goto without straying too far from the original code. Although the code could be easily re-written to avoid it, there is a certain elegance to the use of this goto to initialize variables. I decided to err on the side of being too faithful to the original.
