@@ -3,13 +3,14 @@
 void PRIMES(int l, int prime[])
 {
   int j, n, k, r, q;
-  j = 0;
+
+  j = 0;                         // P1
   n = 3;
   prime[0] = 2;
   while(1) {
     prime[++j] = n;              // P2
     if (j == l) return;          // P3
-P4: n += 2;
+P4: n += 2;                      // P4
     for(k=1;;k++) {              // P5;;P8
       q = n / prime[k];          // P6
       r = n % prime[k];
