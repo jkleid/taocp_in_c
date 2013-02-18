@@ -1,6 +1,4 @@
-#include <stdint.h>
 #include <stdio.h>
-#include <stdbool.h>
 #include "mix.h"
 
 
@@ -27,4 +25,10 @@ Instruction UnpackInstruction(Word word)
   inst.F = word.f4;
   inst.C = word.f5;
   return inst;
+}
+
+void PrintWord(const char* description, Word word)
+{
+  printf("%s: [%d] %d, %d, %d, %d, %d\n", description,
+       word.sign, word.f1, word.f2, word.f3, word.f4, word.f5);
 }

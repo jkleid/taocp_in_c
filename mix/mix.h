@@ -1,6 +1,8 @@
 #ifndef _MIX_H_
 #define _MIX_H_
 
+#include <stdint.h>
+
 // Number of bits in a mix byte:
 #define BYTE_BITS 6
 
@@ -50,5 +52,6 @@ enum Instruction_Opcodes {
 
 Word PackInstruction(Instruction inst);
 Instruction UnpackInstruction(Word word);
+void PrintWord(const char* description, Word word);
 
 #endif
