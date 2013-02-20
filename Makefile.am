@@ -1,1 +1,1 @@
-SUBDIRS = 1_3_2 mix
+SUBDIRS = mix 1_3_2
