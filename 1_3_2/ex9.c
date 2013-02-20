@@ -89,8 +89,8 @@ bool ValidateInstruction(Word inst)
   };
   const Instruction VALID_INST = { 3999, 6, 6, CMPX };
   const Word VALID = PackInstruction(VALID_INST);
-  // Assemble the table if instructions:
   Word table[64];
+  // Assemble the table of instructions:
   for (int i=0; i<64; i++)
     table[i] = PackInstruction(instructions[i]);
   if (inst.f3 > VALID.f3)    // BEGIN
