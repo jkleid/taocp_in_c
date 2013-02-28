@@ -8,8 +8,7 @@ int* Saddle(int matrix[9*8])
   int* a10 = matrix - 1;
   idx = 9*8;     // START
   do {           // ROWMIN
-    col = 8;
-    do {
+    for(col=8;;) {
       elem = a10[idx];     // 2H
       pos = 0;
       do {
@@ -20,7 +19,7 @@ int* Saddle(int matrix[9*8])
             goto COLMAX;
         } while(elem < a10[idx]); // 3H
       } while(elem == a10[idx]);
-    } while(elem > a10[idx]);
+    }
 COLMAX: // elem is now the minimum value of the row just considered.
     do {
       col = list[pos-1];
