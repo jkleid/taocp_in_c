@@ -22,12 +22,10 @@ int* Saddle(int matrix[9*8])
     }
 COLMAX: // elem is now the minimum value of the row just considered.
     do {
-      col = list[pos-1];
-      col += 9*8-8;
-      do {
+      for(col = list[pos-1] + 9*8-8; col > 0; col -= 8) {
         if (elem < a10[col])  // 1H
           goto NO;
-      } while((col-=8) > 0);
+      }
       return &a10[col+8];     // YES
 NO:   --pos;
     } while (pos > 0);
