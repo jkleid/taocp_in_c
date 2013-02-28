@@ -1,4 +1,3 @@
-
 int* Saddle(int matrix[9*8])
 {
   int list[8];
@@ -6,7 +5,7 @@ int* Saddle(int matrix[9*8])
   int col; // r2
   int pos; // r3
   int elem; // rX
-  int* a10 = matrix - sizeof(int);
+  int* a10 = matrix - 1;
   idx = 9*8;     // START
   do {           // ROWMIN
     col = 8;
@@ -22,7 +21,7 @@ int* Saddle(int matrix[9*8])
         } while(elem < a10[idx]); // 3H
       } while(elem == a10[idx]);
     } while(elem > a10[idx]);
-COLMAX: // At this point, elem is the minimum value of the row just considered.
+COLMAX: // elem is now the minimum value of the row just considered.
     do {
       col = list[pos-1];
       col += 9*8-8;
@@ -31,7 +30,8 @@ COLMAX: // At this point, elem is the minimum value of the row just considered.
           goto NO;
       } while((col-=8) > 0);
       return &a10[col+8];     // YES
-NO:
-    } while (--pos > 0);
+NO:   --pos;
+    } while (pos > 0);
   } while (idx > 0);
+  return 0;
 }
