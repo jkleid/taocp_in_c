@@ -57,6 +57,42 @@ START_TEST (test_saddle3)
 }
 END_TEST
 
+START_TEST (test_saddle4)
+{
+  int matrix[] = {
+    8, 0, 8, 1, 0, 1, 3, 9,
+    6, 9, 4, 1, 2, 5, 0, 6,
+    1, 1, 9, 5, 3, 7, 3, 6,
+    9, 7, 1, 9, 3, 6, 1, 9,
+    6, 3, 2, 9, 5, 2, 4, 7,
+    5, 5, 5, 5, 5, 5, 5, 5,
+    2, 4, 4, 4, 4, 7, 7, 9,
+    7, 1, 4, 9, 5, 9, 6, 0,
+    0, 1, 9, 5, 2, 0, 0, 1,
+  };
+  
+  fail_unless(Saddle(matrix) == &matrix[4]);
+} 
+END_TEST
+
+START_TEST (test_saddle5)
+{
+  int matrix[] = {
+    8, 0, 8, 1, 0, 1, 3, 0,
+    6, 9, 4, 1, 2, 5, 0, 0,
+    1, 1, 9, 5, 3, 7, 3, 0,
+    9, 7, 1, 9, 3, 6, 1, 0,
+    6, 3, 2, 9, 5, 2, 4, 0,
+    5, 5, 5, 5, 5, 5, 5, 0,
+    2, 4, 4, 4, 4, 7, 7, 0,
+    7, 1, 4, 9, 5, 9, 6, 0,
+    2, 2, 2, 2, 2, 2, 2, 1,
+  };
+
+  fail_unless(Saddle(matrix) == &matrix[7]);
+}
+END_TEST
+
 Suite *test_suite()
 {
   Suite *s = suite_create("ex10");
@@ -64,6 +100,8 @@ Suite *test_suite()
   tcase_add_test(tc_core, test_saddle1);
   tcase_add_test(tc_core, test_saddle2);
   tcase_add_test(tc_core, test_saddle3);
+  tcase_add_test(tc_core, test_saddle4);
+  tcase_add_test(tc_core, test_saddle5);
   suite_add_tcase(s, tc_core);
   return s;
 }
