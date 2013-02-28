@@ -23,4 +23,5 @@ check_ex9_CFLAGS = @CHECK_CFLAGS@ -I ../mix
 check_ex9_LDADD = @CHECK_LIBS@ ../mix/libmix.a
 
 check_ex10sol1_SOURCES = check_ex10.c ex10sol1.c
+check_ex10sol1_CFLAGS = @CHECK_CFLAGS@
 check_ex10sol1_LDADD = @CHECK_LIBS@
