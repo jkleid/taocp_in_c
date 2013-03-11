@@ -26,7 +26,7 @@ COLMAX: // elem is now the minimum value of the row just considered.
         if (elem < a10[col])  // 1H
           goto NO;
       }
-      return &a10[col+8];     // YES
+      return &a10[idx+col+8];     // YES
 NO:   --pos;
     } while (pos > 0);
   } while (idx > 0);

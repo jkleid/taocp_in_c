@@ -17,7 +17,7 @@ START_TEST (test_saddle1)
     0, 1, 9, 5, 2, 0, 0, 1,
   };
 
-  fail_unless(Saddle(matrix) == &matrix[4]);
+  fail_unless(Saddle(matrix) == &matrix[44]);
 }
 END_TEST
 
@@ -53,7 +53,7 @@ START_TEST (test_saddle3)
     0, 1, 9, 5, 2, 0, 0, 1,
   };
 
-  fail_unless(Saddle(matrix) == &matrix[4]);
+  fail_unless(Saddle(matrix) == &matrix[44]);
 }
 END_TEST
 
@@ -71,7 +71,7 @@ START_TEST (test_saddle4)
     0, 1, 9, 5, 2, 0, 0, 1,
   };
   
-  fail_unless(Saddle(matrix) == &matrix[4]);
+  fail_unless(Saddle(matrix) == &matrix[44]);
 } 
 END_TEST
 
@@ -89,9 +89,28 @@ START_TEST (test_saddle5)
     2, 2, 2, 2, 2, 2, 2, 1,
   };
 
-  fail_unless(Saddle(matrix) == &matrix[7]);
+  fail_unless(Saddle(matrix) == &matrix[71]);
 }
 END_TEST
+
+START_TEST (test_saddle6)
+{
+  int matrix[] = {
+    1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1,
+  };
+
+  fail_unless(Saddle(matrix) == &matrix[64]);
+}
+END_TEST
+
 
 Suite *test_suite()
 {
@@ -102,6 +121,7 @@ Suite *test_suite()
   tcase_add_test(tc_core, test_saddle3);
   tcase_add_test(tc_core, test_saddle4);
   tcase_add_test(tc_core, test_saddle5);
+  tcase_add_test(tc_core, test_saddle6);
   suite_add_tcase(s, tc_core);
   return s;
 }

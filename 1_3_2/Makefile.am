@@ -1,6 +1,6 @@
-TESTS = check_M check_M_literal check_P check_ex9 check_ex10sol1
+TESTS = check_M check_M_literal check_P check_ex9 check_ex10sol1 check_ex10sol2
 bin_PROGRAMS = print_primes ex3 ex8
-check_PROGRAMS = check_M check_M_literal check_P check_ex9 check_ex10sol1
+check_PROGRAMS = check_M check_M_literal check_P check_ex9 check_ex10sol1 check_ex10sol2
 
 check_M_SOURCES = check_M.c M.c
 check_M_CFLAGS = @CHECK_CFLAGS@
@@ -25,3 +25,7 @@ check_ex9_LDADD = @CHECK_LIBS@ ../mix/libmix.a
 check_ex10sol1_SOURCES = check_ex10.c ex10sol1.c
 check_ex10sol1_CFLAGS = @CHECK_CFLAGS@
 check_ex10sol1_LDADD = @CHECK_LIBS@
+
+check_ex10sol2_SOURCES = check_ex10.c ex10sol2.c
+check_ex10sol2_CFLAGS = @CHECK_CFLAGS@
+check_ex10sol2_LDADD = @CHECK_LIBS@
