@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 int* Saddle(int matrix[9*8])
 {
   int CMAX[8];
@@ -30,21 +32,29 @@ INIT_MIN_MAX:
     }
   } while(--col > 0);
 
+  printf("min_max=%d\n", min_max);
+  for(int i=0; i<8; i++)
+    printf("CMAX[%d] = %d\n", i, CMAX[i]);
+
 // Phase 2:
   row_start = 9*8-8;
   do {
     pos = row_start+8;
     col = 8;
     do {
+      printf("a[%d] = %d\n", pos, a10[pos]);
       if (min_max > a10[pos])
         goto NO;
       if ((min_max == a10[pos]) && (min_max == CMAX[col-1]))
         saddle = &a10[pos];
       pos--;
     } while (--col > 0);
+    printf("Saddle: %ld\n", saddle - a10);
     return saddle;
 NO:
     row_start -= 8;
-  } while (row_start > 0);
+    printf("NO. row_start=%d\n", row_start);
+  } while (row_start >= 0);
+  printf("No Saddle.\n");
   return 0;
 }

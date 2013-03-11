@@ -111,6 +111,24 @@ START_TEST (test_saddle6)
 }
 END_TEST
 
+START_TEST (test_saddle7)
+{
+  int matrix[] = {
+    8, 8, 9, 9, 6, 7, 7, 8,
+    8, 0, 8, 1, 0, 1, 3, 9,
+    6, 9, 4, 1, 2, 5, 0, 6,
+    1, 1, 9, 5, 3, 7, 3, 6,
+    9, 7, 1, 9, 3, 6, 1, 9,
+    6, 3, 2, 9, 5, 2, 4, 7,
+    2, 4, 4, 4, 4, 7, 7, 9,
+    7, 1, 4, 9, 5, 9, 6, 0,
+    0, 1, 9, 5, 2, 0, 0, 1,
+  };
+
+  fail_unless(Saddle(matrix) == &matrix[4]);
+}
+END_TEST
+
 
 Suite *test_suite()
 {
@@ -122,6 +140,7 @@ Suite *test_suite()
   tcase_add_test(tc_core, test_saddle4);
   tcase_add_test(tc_core, test_saddle5);
   tcase_add_test(tc_core, test_saddle6);
+  tcase_add_test(tc_core, test_saddle7);
   suite_add_tcase(s, tc_core);
   return s;
 }
