@@ -1,7 +1,3 @@
 #include "P.h"
 
-int main()
-{
-  PRINTPRIMES();
-}
-
+int main() { PRINTPRIMES(); }

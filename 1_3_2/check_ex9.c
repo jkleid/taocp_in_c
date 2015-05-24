@@ -3,15 +3,13 @@
 #include "ex9.h"
 #include "mix.h"
 
-#define CHECK_INSTRUCTION(a, i, f, c, result) \
-        do { \
-          Instruction in = {a, i, f, c}; \
-          fail_unless(ValidateInstruction(PackInstruction(in)) == result); \
-        } while(0)
+#define CHECK_INSTRUCTION(a, i, f, c, result)                        \
+  do {                                                               \
+    Instruction in = {a, i, f, c};                                   \
+    fail_unless(ValidateInstruction(PackInstruction(in)) == result); \
+  } while (0)
 
-
-START_TEST (test_valid_instructions)
-{
+START_TEST(test_valid_instructions) {
   CHECK_INSTRUCTION(0, 0, 0, NOP, true);
 
   CHECK_INSTRUCTION(0, 0, 0, ADD, true);
@@ -35,8 +33,7 @@ START_TEST (test_valid_instructions)
 }
 END_TEST
 
-START_TEST (test_invalid_instructions)
-{
+START_TEST(test_invalid_instructions) {
   CHECK_INSTRUCTION(0, 0, RANGE(5, 6), ADD, false);
   CHECK_INSTRUCTION(0, 0, RANGE(1, 0), ADD, false);
   CHECK_INSTRUCTION(0, 0, RANGE(5, 0), ADD, false);
@@ -56,12 +53,10 @@ START_TEST (test_invalid_instructions)
 
   CHECK_INSTRUCTION(-5, 0, 20, ENNA, false);
   CHECK_INSTRUCTION(0, 0, 20, ENNA, false);
-
 }
 END_TEST
 
-Suite *test_suite()
-{
+Suite *test_suite() {
   Suite *s = suite_create("mix_validity");
   TCase *tc_core = tcase_create("Core");
   tcase_add_test(tc_core, test_valid_instructions);
@@ -70,8 +65,7 @@ Suite *test_suite()
   return s;
 }
 
-int main(void)
-{
+int main(void) {
   int number_failed;
   Suite *s = test_suite();
   SRunner *sr = srunner_create(s);
@@ -80,4 +74,3 @@ int main(void)
   srunner_free(sr);
   return (number_failed == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
 }
-

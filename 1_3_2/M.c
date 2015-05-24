@@ -1,15 +1,14 @@
-int MAXIMUM(const int* X, int n)
-{
+int MAXIMUM(const int* X, int n) {
   int j, k, m;
 
-  k = n-1;          // INIT
+  k = n - 1;  // INIT
   goto CHANGEM;
-  do {              // LOOP
+  do {  // LOOP
     if (m < X[k]) {
-CHANGEM:
+    CHANGEM:
       j = k;
       m = X[k];
     }
   } while (--k >= 0);
-  return j;         // EXIT
+  return j;  // EXIT
 }

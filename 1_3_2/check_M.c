@@ -5,10 +5,9 @@
 #define ARRAY_LEN(array) (sizeof(array) / sizeof(array[0]))
 
 #define MAX_TEST(array, max_index) \
-            fail_unless(MAXIMUM(array, ARRAY_LEN(array)) == max_index)
+  fail_unless(MAXIMUM(array, ARRAY_LEN(array)) == max_index)
 
-START_TEST (test_max)
-{
+START_TEST(test_max) {
   const int a[] = {1, 3, 7, 5, 3};
   MAX_TEST(a, 2);
   const int b[] = {10, 1, 3, 7, 5, 3};
@@ -20,8 +19,7 @@ START_TEST (test_max)
 }
 END_TEST
 
-Suite *test_suite()
-{
+Suite *test_suite() {
   Suite *s = suite_create("M");
   TCase *tc_core = tcase_create("Core");
   tcase_add_test(tc_core, test_max);
@@ -29,8 +27,7 @@ Suite *test_suite()
   return s;
 }
 
-int main(void)
-{
+int main(void) {
   int number_failed;
   Suite *s = test_suite();
   SRunner *sr = srunner_create(s);
@@ -39,4 +36,3 @@ int main(void)
   srunner_free(sr);
   return (number_failed == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
 }
-

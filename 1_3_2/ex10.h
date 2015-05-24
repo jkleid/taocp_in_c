@@ -1,1 +1,1 @@
-int* Saddle(int matrix[9*8]);
+int* Saddle(int matrix[9 * 8]);

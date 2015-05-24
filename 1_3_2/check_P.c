@@ -2,9 +2,7 @@
 #include <check.h>
 #include <P.h>
 
-
-START_TEST (test_primes)
-{
+START_TEST(test_primes) {
   int primes[500];
   PRIMES(500, primes);
   fail_unless(primes[0] == 2);
@@ -19,8 +17,7 @@ START_TEST (test_primes)
 }
 END_TEST
 
-Suite *test_suite()
-{
+Suite *test_suite() {
   Suite *s = suite_create("P");
   TCase *tc_core = tcase_create("Core");
   tcase_add_test(tc_core, test_primes);
@@ -28,8 +25,7 @@ Suite *test_suite()
   return s;
 }
 
-int main(void)
-{
+int main(void) {
   int number_failed;
   Suite *s = test_suite();
   SRunner *sr = srunner_create(s);
@@ -38,4 +34,3 @@ int main(void)
   srunner_free(sr);
   return (number_failed == 0) ? EXIT_SUCCESS : EXIT_FAILURE;
 }
-
